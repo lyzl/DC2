@@ -1,11 +1,13 @@
 package DC2;
-
+enum TaskPriorty{
+    High, MediumHigh, Medium, MediumLow, low
+}
 public class DC2ComputingTask {
-    private Float duration;
+    private Long duration;
     private Float occupation;
     private String id;
 
-    public Float getDuration() {
+    public Long getDuration() {
         return duration;
     }
 
@@ -17,7 +19,7 @@ public class DC2ComputingTask {
         return id;
     }
 
-    DC2ComputingTask(Float duration, Float occupation, String id) {
+    DC2ComputingTask(Long duration, Float occupation, String id) {
         this.duration = duration;
         this.id = id;
         this.occupation = occupation;

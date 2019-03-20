@@ -31,8 +31,16 @@ public class DC2PowerControl {
         if(onlineCpuAgentList.size() > PMP.optimalCpuNum){
             Collections.sort(onlineCpuAgentList, new sortingStrategy());
             int remain = onlineCpuAgentList.size() - PMP.optimalCpuNum;
-            for(int i = 0; i < remain; i++){
-                onlineCpuAgentList.get(i).shutDown();
+            if(remain > 0){
+                for(int i = 0; i < remain; i++) {
+                    onlineCpuAgentList.get(i).shutDown();
+                }
+            }
+        }else if(onlineCpuAgentList.size() < PMP.optimalCpuNum){
+            int need = PMP.optimalCpuNum - onlineCpuAgentList.size();
+            need = need < offlineCpuAgentList.size() ? need : offlineCpuAgentList.size();
+            for(int i = 0; i < need; i++){
+                offlineCpuAgentList.get(i).powerOn();
             }
         }
 

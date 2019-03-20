@@ -11,14 +11,10 @@ public abstract class DC2Facility {
          state = false;
      }
      void tick(){
-         if(state){
-             if(tickCount >= timeInterval){
-                 mainTask();
-                 tickCount = 0;
-             }else{
-                 tickCount++;
-             }
+         if(tickCount % timeInterval == 0 && state){
+             mainTask();
          }
+         tickCount++;
      }
      abstract void mainTask();
 }
