@@ -8,6 +8,11 @@ public class DC2Prediction extends DC2Facility{
     private DC2PowerManagementPolicy PMP;
     private Float optimalRate = 0.6f;
 
+    DC2Prediction(DC2Database database, Long timeInterval) {
+        super(timeInterval);
+        this.database = database;
+    }
+
     private void predict(){
         ArrayList<DC2CpuRecordingMatrix> recordingList =  database.getRecordingMatrixList();
         Float totalCpuOccupation = 0.0f;

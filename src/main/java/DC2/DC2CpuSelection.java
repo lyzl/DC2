@@ -7,6 +7,10 @@ public class DC2CpuSelection extends DC2Facility {
     private Queue<DC2ComputingTask> taskQueue;
     private DC2Database database;
 
+    DC2CpuSelection(Long timeInterval) {
+        super(timeInterval);
+    }
+
     @Override
     void mainTask() {
         monitorTaskQueue();

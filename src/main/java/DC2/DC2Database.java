@@ -26,7 +26,8 @@ public class DC2Database extends DC2Facility{
         return recordingList;
     }
 
-    public DC2Database(DC2MonitoringService ms){
+    public DC2Database(DC2MonitoringService ms, Long timeInterval){
+        super(timeInterval);
         this.ms = ms;
     }
 

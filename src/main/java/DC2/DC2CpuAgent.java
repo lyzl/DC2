@@ -10,25 +10,40 @@ enum CpuState{
 }
 public class DC2CpuAgent extends DC2Facility{
     private Float workload;
+    private Float maxWorkLoad;
+
+    private String tag;
+    private CpuState cpuState;
     private Queue<Long> finishedTimeQueue = new LinkedList<>();
 
     public Float getWorkload() {
         return workload;
     }
 
-    private Float maxWorkLoad;
+    public Float getMaxWorkLoad() {
+        return maxWorkLoad;
+    }
 
     public CpuState getCpuState() {
         return cpuState;
+    }
+
+    public String getTag() {
+        return tag;
     }
 
     public void setCpuState(CpuState cpuState) {
         this.cpuState = cpuState;
     }
 
-    private CpuState cpuState;
 
-    public DC2CpuAgent(String tag, float maxWorkLoad){}
+
+    public DC2CpuAgent(String tag, float maxWorkLoad, Long timeInterval){
+        super(timeInterval);
+        this.tag = tag;
+        this.maxWorkLoad = maxWorkLoad;
+        this.workload = 0.0f;
+    }
 
     public void assign(DC2ComputingTask task){
         workload += task.getOccupation();
@@ -45,8 +60,8 @@ public class DC2CpuAgent extends DC2Facility{
 
     @Override
     void mainTask() {
-        if(this.cpuState == CpuState.ON){
-            while (finishedTimeQueue.peek() < tickCount){
+        if(this.cpuState == CpuState.ON || this.cpuState == CpuState.SHUTTING){
+            while (finishedTimeQueue.size() > 0 && finishedTimeQueue.peek() < tickCount){
                 finishedTimeQueue.poll();
             }
             if(finishedTimeQueue.size() == 0 &&  this.cpuState == CpuState.SHUTTING){

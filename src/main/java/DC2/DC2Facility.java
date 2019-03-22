@@ -1,8 +1,8 @@
 package DC2;
 
 public abstract class DC2Facility {
-     Integer timeInterval = Integer.MAX_VALUE;
-     Integer tickCount = 0;
+     Long timeInterval = Long.MAX_VALUE;
+     Long tickCount = 1L;
      Boolean state = false;
      void start(){
          state = true;
@@ -15,6 +15,10 @@ public abstract class DC2Facility {
              mainTask();
          }
          tickCount++;
+     }
+     DC2Facility(Long timeInterval){
+         this.timeInterval = timeInterval;
+         state = true;
      }
      abstract void mainTask();
 }
