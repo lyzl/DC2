@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="50b44f81-ad65-4a53-aef2-f7937f27cb0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DC2/DC2CpuAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DC2/DC2CpuAgent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DC2/DC2PowerControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DC2/DC2PowerControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/DC2/java/DC2/DC2CpuAgentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DC2/DC2CpuAgentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/DC2/java/DC2/DC2MonitoringServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DC2/DC2MonitoringServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/DC2/java/DC2/DC2PredictionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DC2/DC2PredictionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DC2/DC2Prediction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DC2/DC2Prediction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DC2/DC2PredictionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DC2/DC2PredictionTest.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/modules/target/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -101,11 +98,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/DC2/DC2PredictionTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+            <state relative-caret-position="152">
+              <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
               <folding>
-                <element signature="e#267#268#0" expanded="true" />
-                <element signature="e#345#346#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#405#412#0" expanded="true" />
+                <element signature="e#1059#1097#0" />
               </folding>
             </state>
           </provider>
@@ -114,8 +112,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/DC2/DC2Prediction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="561">
+              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1184#1185#0" expanded="true" />
@@ -207,7 +205,6 @@
         <option value="$PROJECT_DIR$/src/test/DC2/DC2CpuAgentTest" />
         <option value="$PROJECT_DIR$/src/main/java/DC2/DC2CpuRecordingMatrix.java" />
         <option value="$PROJECT_DIR$/src/test/DC2/DC2PowerControlTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/DC2/DC2Prediction.java" />
         <option value="$PROJECT_DIR$/src/main/java/DC2/DC2Facility.java" />
         <option value="$PROJECT_DIR$/src/test/DC2/DC2CpuAgentTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/DC2/DC2Database.java" />
@@ -220,13 +217,16 @@
         <option value="$PROJECT_DIR$/src/main/java/DC2/DC2PowerControl.java" />
         <option value="$PROJECT_DIR$/src/main/java/DC2/DC2CpuAgent.java" />
         <option value="$PROJECT_DIR$/src/test/java/DC2/DC2CpuAgentTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/DC2/DC2Prediction.java" />
+        <option value="$PROJECT_DIR$/src/test/java/DC2/DC2PredictionTest.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-11" />
-    <option name="width" value="1390" />
-    <option name="height" value="1100" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -276,21 +276,6 @@
               <item name="DC2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="DC2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DC2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="DC2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DC2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DC2" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="DC2" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="DC2" type="b2602c69:ProjectViewProjectNode" />
@@ -404,7 +389,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553290099686" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553291619177" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -436,7 +421,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.DC2PredictionTest.totalCPUOccupationTest">
+  <component name="RunManager" selected="JUnit.All in DC2.DC2.test">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -445,6 +430,15 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in DC2.DC2.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="DC2.DC2.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -459,22 +453,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="DC2" />
       <option name="TEST_OBJECT" value="package" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DC2ComputingTaskTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="DC2.DC2.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="DC2.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="DC2" />
-      <option name="MAIN_CLASS_NAME" value="DC2.DC2ComputingTaskTest" />
-      <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -572,19 +550,19 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.DC2PredictionTest" />
-      <item itemvalue="JUnit.DC2ComputingTaskTest" />
       <item itemvalue="JUnit.DC2DatabaseTest" />
       <item itemvalue="JUnit.DC2PowerControlTest" />
       <item itemvalue="JUnit.DC2 in DC2.DC2.test" />
       <item itemvalue="JUnit.DC2PredictionTest.totalCPUOccupationTest" />
+      <item itemvalue="JUnit.All in DC2.DC2.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in DC2.DC2.test" />
         <item itemvalue="JUnit.DC2PredictionTest.totalCPUOccupationTest" />
         <item itemvalue="JUnit.DC2 in DC2.DC2.test" />
         <item itemvalue="JUnit.DC2PowerControlTest" />
         <item itemvalue="JUnit.DC2DatabaseTest" />
-        <item itemvalue="JUnit.DC2ComputingTaskTest" />
       </list>
     </recent_temporary>
   </component>
@@ -613,15 +591,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DC2CpuSelectionTest_receiveTask_Valid - 2019.03.22 at 19h 24m 46s.xml">
-      <configuration name="DC2CpuSelectionTest.receiveTask_Valid" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DC2CpuSelectionTest - 2019.03.22 at 19h 25m 03s.xml">
-      <configuration name="DC2CpuSelectionTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DC2CpuSelectionTest - 2019.03.22 at 19h 35m 28s.xml">
-      <configuration name="DC2CpuSelectionTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DC2CpuSelectionTest - 2019.03.22 at 19h 36m 51s.xml">
       <configuration name="DC2CpuSelectionTest" configurationId="JUnit" />
     </history-entry>
@@ -643,6 +612,15 @@
     <history-entry file="DC2PredictionTest_totalCPUOccupationTest - 2019.03.22 at 21h 23m 12s.xml">
       <configuration name="DC2PredictionTest.totalCPUOccupationTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="DC2PredictionTest - 2019.03.22 at 21h 46m 08s.xml">
+      <configuration name="DC2PredictionTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DC2PredictionTest_totalCPUOccupationTest - 2019.03.22 at 21h 46m 19s.xml">
+      <configuration name="DC2PredictionTest.totalCPUOccupationTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DC2PredictionTest - 2019.03.22 at 21h 46m 34s.xml">
+      <configuration name="DC2PredictionTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="18113000" />
@@ -660,7 +638,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24253732" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24253732" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -670,7 +648,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32932165" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.94468546" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.39370933" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39370933" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -740,12 +718,6 @@
           <line>14</line>
           <properties />
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/DC2/DC2PredictionTest.java</url>
-          <line>22</line>
-          <properties />
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -940,8 +912,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/DC2/DC2Prediction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="561">
+          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1184#1185#0" expanded="true" />
@@ -952,11 +924,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/DC2/DC2PredictionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="22" column="24" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
+        <state relative-caret-position="152">
+          <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
           <folding>
-            <element signature="e#267#268#0" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#405#412#0" expanded="true" />
+            <element signature="e#1059#1097#0" />
           </folding>
         </state>
       </provider>
