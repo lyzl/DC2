@@ -22,7 +22,7 @@ public class DC2PowerControl {
         ArrayList<DC2CpuAgent> onlineCpuAgentList = new ArrayList<DC2CpuAgent>();
         ArrayList<DC2CpuAgent> offlineCpuAgentList = new ArrayList<DC2CpuAgent>();;
         for(DC2CpuAgent agent: cpuAgentList){
-            if(agent.getCpuState() == CpuState.ON){
+            if(agent.getCpuState() == DC2CpuState.ON){
                 onlineCpuAgentList.add(agent);
             }else{
                 offlineCpuAgentList.add(agent);

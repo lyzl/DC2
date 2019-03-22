@@ -25,5 +25,3 @@ public class DC2ComputingTask {
         this.occupation = occupation;
     }
 }
-
-
