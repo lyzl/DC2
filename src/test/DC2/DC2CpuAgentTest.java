@@ -1,3 +1,5 @@
+package DC2;
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -5,21 +7,34 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 @SuppressWarnings("ThrowablePrintedToSystemOut")
-public class CPUAgentTest {
+public class DC2CpuAgentTest {
+
+    Float max;
+    Long duration;
+    Long timeInterval;
+    Float occupation;
+    String id;
+    String tag;
+
+    private DC2CpuAgent ca;
+    private DC2ComputingTask task;
 
     // Setting Values for test
-    private String tag = "1a";
-    private float max = 100.0f;
-    private CPUAgent ca = new CPUAgent(tag, max);
+    @Before
+    public void before(){
+        max = 100.0f;
+        duration = 1000l;
+        occupation = 10.0f;
+        id = "1b";
+        tag = "1a";
+        timeInterval = 1l;
+    }
 
-    private long duration = 1000;
-    private float occupation = 10.0f;
-    private String id = "1a";
-    private ComputingTask task = new ComputingTask(duration, occupation, id);
 
+    @Test
+    public void getMaxWorkload_validMaxWorkLoad_passed(){
+        ca = new DC2CpuAgent(tag, max, timeInterval);
 
-    @Ignore("Keeps returning NullPointerException")
-    public void getMaxWorkload(){
         System.out.println("Max Workload");
         System.out.println(ca.getMaxWorkLoad());
         System.out.println("Workload");
@@ -28,20 +43,24 @@ public class CPUAgentTest {
         assertEquals(String.valueOf(ca.getMaxWorkLoad()), String.valueOf(max));
     }
 
-    @Ignore("Needs Fixing")
-    public void getWorkload(){
+    @Test
+    public void getWorkload_validWorkLoad_passed(){
         //assertTrue(ca.getWorkload() instanceof Float);
+        ca = new DC2CpuAgent(tag, max, timeInterval);
         assertTrue(ca.getWorkload() >= 0.0f);
     }
 
-    @Ignore("Unable to put CPU in this state")
-    public void getCpuStateShutting(){
+    @Test
+    public void shutDown_CpuStateOn_CpuStateOff(){
+        ca = new DC2CpuAgent(tag, max, timeInterval);
         ca.shutDown();
-        assertEquals(ca.getCpuState(), CpuState.SHUTTING);
+        ca.tick();
+        assertEquals(ca.getCpuState(), CpuState.OFF);
     }
-
+////////////////////////// Finished check at here.
     @Test
     public void getCpuStateOff() {
+        ca = new DC2CpuAgent(tag, max, timeInterval);
         ca.shutDown();
         try{
             wait(10000);
@@ -51,7 +70,7 @@ public class CPUAgentTest {
         assertEquals(ca.getCpuState(),CpuState.OFF);
     }
     @Test
-    public void getCpuStateOn(){
+    public void getCpuStateOn_CpuStateOn_pass(){
         ca.powerOn();
         assertEquals(ca.getCpuState(), CpuState.ON);
     }
