@@ -39,6 +39,11 @@ public class DC2Database extends DC2Facility{
 
     }
 
+    public String rankCpuList(ArrayList<DC2CpuMatrix> cpuRankingList){
+        cpuRankingList.sort((o1, o2) -> o1.score < o2.score ? 0:1);
+        return "CPU Rank list sorted";
+    }
+
     @Override
     void mainTask() {
 

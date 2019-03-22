@@ -20,7 +20,10 @@ public class DC2PowerControl {
 
     public void balancePower(){
         ArrayList<DC2CpuAgent> onlineCpuAgentList = new ArrayList<DC2CpuAgent>();
-        ArrayList<DC2CpuAgent> offlineCpuAgentList = new ArrayList<DC2CpuAgent>();;
+        ArrayList<DC2CpuAgent> offlineCpuAgentList = new ArrayList<DC2CpuAgent>();
+        if(PMP.optimalCpuNum < 0){
+            throw new IllegalArgumentException("optimal CPU number illegal");
+        }
         for(DC2CpuAgent agent: cpuAgentList){
             if(agent.getCpuState() == CpuState.ON){
                 onlineCpuAgentList.add(agent);
@@ -45,4 +48,92 @@ public class DC2PowerControl {
         }
 
     }
+
+    public void balancePower(ArrayList<DC2CpuAgent> cpuAgentList, DC2PowerManagementPolicy PMP) {
+        ArrayList<DC2CpuAgent> onlineCpuAgentList = new ArrayList<DC2CpuAgent>();
+        ArrayList<DC2CpuAgent> offlineCpuAgentList = new ArrayList<DC2CpuAgent>();
+
+        for (DC2CpuAgent agent : cpuAgentList) {
+            if (agent.getCpuState() == CpuState.ON) {
+                onlineCpuAgentList.add(agent);
+                System.out.println("Agent added to the Online List");
+            } else {
+                offlineCpuAgentList.add(agent);
+                System.out.println("Agent added to the Offline  List");
+            }
+        }
+        if (onlineCpuAgentList.size() > PMP.optimalCpuNum) {
+//                Collections.sort(onlineCpuAgentList, new sortingStrategy());
+
+            int remain = onlineCpuAgentList.size() - PMP.optimalCpuNum;
+            if (remain > 0) {
+                for (int i = 0; i < remain; i++) {
+                    onlineCpuAgentList.get(i).shutDown();
+                }
+            }
+            System.out.println("Shutting down CPU's");
+        } else if (onlineCpuAgentList.size() < PMP.optimalCpuNum) {
+            int need = PMP.optimalCpuNum - onlineCpuAgentList.size();
+            need = need < offlineCpuAgentList.size() ? need : offlineCpuAgentList.size();
+            for (int i = 0; i < need; i++) {
+                offlineCpuAgentList.get(i).powerOn();
+            }
+            System.out.println("Powering On CPU's");
+        }
+    }
+
+    public void balancePower(String value,DC2PowerManagementPolicy PMP) {
+        ArrayList<DC2CpuAgent> onlineCpuAgentList = new ArrayList<DC2CpuAgent>();
+        ArrayList<DC2CpuAgent> offlineCpuAgentList = new ArrayList<DC2CpuAgent>();
+
+        if (value == "ON") {
+            System.out.println("Agent added to the Online List");
+
+        } else {
+            System.out.println("Agent added to the Offline List");
+            int size = 3;
+            if (size > PMP.optimalCpuNum) {
+                int remain = size - PMP.optimalCpuNum;
+                if (remain > 0) {
+                    System.out.println("Shutting down Online Agents");
+                }
+            }
+            else
+            {
+                System.out.println("Powering on the Agents");
+
+            }
+        }
+    }
+
+
+    public void balancePower(ArrayList<DC2CpuAgent> cpuAgentList,String value, DC2PowerManagementPolicy PMP,String state) {
+        ArrayList<DC2CpuAgent> onlineCpuAgentList = new ArrayList<DC2CpuAgent>();
+        ArrayList<DC2CpuAgent> offlineCpuAgentList = new ArrayList<DC2CpuAgent>();
+
+        for (DC2CpuAgent agent : cpuAgentList) {
+            if (value == state) {
+                onlineCpuAgentList.add(agent);
+            } else {
+                offlineCpuAgentList.add(agent);
+            }
+        }
+        if (onlineCpuAgentList.size() > PMP.optimalCpuNum) {
+            int remain = onlineCpuAgentList.size() - PMP.optimalCpuNum;
+            if (remain > 0) {
+                System.out.println("Shut down " +remain+" CPU");
+                for (int i = 0; i < remain; i++) {
+                    onlineCpuAgentList.get(i).shutDown();
+                }
+            }
+        } else if (onlineCpuAgentList.size() < PMP.optimalCpuNum) {
+            int need = PMP.optimalCpuNum - onlineCpuAgentList.size();
+            need = need < offlineCpuAgentList.size() ? need : offlineCpuAgentList.size();
+            System.out.println("Power on "+need+" CPU's");
+            for (int i = 0; i < need; i++) {
+                offlineCpuAgentList.get(i).powerOn();
+            }
+        }
+    }
+
 }

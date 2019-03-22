@@ -3,9 +3,9 @@ enum TaskPriorty{
     High, MediumHigh, Medium, MediumLow, low
 }
 public class DC2ComputingTask {
-    private Long duration;
-    private Float occupation;
-    private String id;
+    public Long duration;
+    public Float occupation;
+    public String id;
 
     public Long getDuration() {
         return duration;
@@ -23,6 +23,12 @@ public class DC2ComputingTask {
         this.duration = duration;
         this.id = id;
         this.occupation = occupation;
+    }
+    public String checkId(String id) {
+
+        if(Integer.parseInt(id)<0)
+            return "Error: Task Id cannot be less than 0";
+        return id;
     }
 }
 
