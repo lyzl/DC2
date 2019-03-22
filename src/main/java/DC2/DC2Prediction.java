@@ -6,16 +6,21 @@ import java.lang.Math.*;
 public class DC2Prediction extends DC2Facility{
     private DC2Database database;
     private DC2PowerManagementPolicy PMP;
+
+    public Float getTotalCpuOccupation() {
+        return totalCpuOccupation;
+    }
+
+    private Float totalCpuOccupation;
     private Float optimalRate = 0.6f;
 
-    DC2Prediction(DC2Database database, Long timeInterval) {
+    DC2Prediction(Long timeInterval) {
         super(timeInterval);
-        this.database = database;
     }
 
     private void predict(){
         ArrayList<DC2CpuRecordingMatrix> recordingList =  database.getRecordingMatrixList();
-        Float totalCpuOccupation = 0.0f;
+        totalCpuOccupation= 0.0f;
         for(DC2CpuRecordingMatrix recording: recordingList){
             Float totalOccupationPerCpu = 0.0f;
             for(Float occupation: recording.occupationHistoryQueue){
@@ -26,6 +31,11 @@ public class DC2Prediction extends DC2Facility{
         Long cpuCount = Math.round(Math.floor(totalCpuOccupation / optimalRate));
         PMP.optimalCpuNum = cpuCount.intValue();
 
+    }
+
+
+    public Float getOptimalRate() {
+        return optimalRate;
     }
 
     @Override

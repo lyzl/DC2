@@ -8,7 +8,9 @@ public class DC2MonitoringService {
 
     public DC2MonitoringService(ArrayList<DC2CpuAgent> agentList){
         this.agentList = agentList;
+        this.matrixList = new ArrayList<DC2CpuMatrix>();
     }
+
     public void updateCpuMatrix() {
         matrixList.clear();
         for(DC2CpuAgent agent: agentList){
@@ -18,7 +20,7 @@ public class DC2MonitoringService {
         }
     }
 
-    public ArrayList<DC2CpuMatrix> getCpuMatrix(){
-        return new ArrayList<>(matrixList);
+    public ArrayList<DC2CpuAgent> getCpuMatrix(){
+        return agentList;
     }
 }

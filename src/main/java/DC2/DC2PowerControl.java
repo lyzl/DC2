@@ -25,7 +25,7 @@ public class DC2PowerControl {
             throw new IllegalArgumentException("optimal CPU number illegal");
         }
         for(DC2CpuAgent agent: cpuAgentList){
-            if(agent.getCpuState() == CpuState.ON){
+            if(agent.getCpuState() == DC2CpuState.ON){
                 onlineCpuAgentList.add(agent);
             }else{
                 offlineCpuAgentList.add(agent);
