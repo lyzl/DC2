@@ -1,124 +1,86 @@
 package DC2;
-import org.junit.Before;
+
 import org.junit.Ignore;
 import org.junit.Test;
 
 
+import static DC2.DC2CpuState.*;
 import static org.junit.Assert.*;
 
-@SuppressWarnings("ThrowablePrintedToSystemOut")
 public class DC2CpuAgentTest {
 
-    Float max;
-    Long duration;
-    Long timeInterval;
-    Float occupation;
-    String id;
-    String tag;
-
-    private DC2CpuAgent ca;
-    private DC2ComputingTask task;
-
     // Setting Values for test
-    @Before
-    public void before(){
-        max = 100.0f;
-        duration = 1000l;
-        occupation = 10.0f;
-        id = "1b";
-        tag = "1a";
-        timeInterval = 1l;
-    }
+    private String tag = "1a";
+    private float max = 100.0f;
+    private long interval = 10;
+    private DC2CpuAgent ca = new DC2CpuAgent(tag, max, interval);
 
+    private long duration = 1000;
+    private float occupation = 10.0f;
+    private String id = "1a";
+    private DC2ComputingTask task = new DC2ComputingTask(duration, occupation, id);
 
     @Test
-    public void getMaxWorkload_validMaxWorkLoad_passed(){
-        ca = new DC2CpuAgent(tag, max, timeInterval);
-
-        System.out.println("Max Workload");
-        System.out.println(ca.getMaxWorkLoad());
-        System.out.println("Workload");
-        System.out.println(ca.getWorkload());
-
-        assertEquals(String.valueOf(ca.getMaxWorkLoad()), String.valueOf(max));
+    public void getWorkload(){
+        assertEquals(String.valueOf(max),String.valueOf(ca.getWorkload()));
     }
 
     @Test
-    public void getWorkload_validWorkLoad_passed(){
-        //assertTrue(ca.getWorkload() instanceof Float);
-        ca = new DC2CpuAgent(tag, max, timeInterval);
-        assertTrue(ca.getWorkload() >= 0.0f);
-    }
-
-    @Test
-    public void shutDown_CpuStateOn_CpuStateOff(){
-        ca = new DC2CpuAgent(tag, max, timeInterval);
+    public void getCpuStateShutting(){
         ca.shutDown();
-        ca.tick();
-        assertEquals(ca.getCpuState(), CpuState.OFF);
+        assertEquals(SHUTTING, ca.getCpuState());
     }
-////////////////////////// Finished check at here.
-    @Test
+
+    @Ignore
     public void getCpuStateOff() {
-        ca = new DC2CpuAgent(tag, max, timeInterval);
         ca.shutDown();
-        try{
-            wait(10000);
-        } catch(Exception e){
-            System.out.println(e);
-        }
-        assertEquals(ca.getCpuState(),CpuState.OFF);
+        forwardTick(10);
+        ca.mainTask();
+        assertEquals(OFF, ca.getCpuState());
     }
+
     @Test
-    public void getCpuStateOn_CpuStateOn_pass(){
+    public void getCpuStateOn(){
         ca.powerOn();
-        assertEquals(ca.getCpuState(), CpuState.ON);
+        assertEquals(ON, ca.getCpuState());
     }
 
     @Test
     public void setCpuState() {
-        ca.setCpuState(CpuState.ON);
-        try{
-            wait(10000);
-        } catch(Exception e){
-            System.out.print(e);
-        }
-
-        assertEquals(ca.getCpuState(),CpuState.ON);
+        ca.setCpuState(ON);
+        assertEquals(ca.getCpuState(), ON);
     }
 
-    @Ignore("Test not yet implemented")
+    @Test
     public void assign() {
-
+        int originalValue = ca.getQueueSize();
+        ca.assign(task);
+        assertEquals(originalValue+1, ca.getQueueSize());
     }
 
     @Test
     public void shutDown() {
         ca.shutDown();
-
-        try{
-            wait(10000);
-        } catch(Exception e){
-            System.out.print(e);
-        }
-
-        assertEquals(ca.getCpuState(), CpuState.OFF);
+        forwardTick(10);
+        assertEquals(ca.getCpuState(), SHUTTING);
     }
 
     @Test
     public void powerOn() {
         ca.powerOn();
-
-        try{
-            wait(10000);
-        } catch(Exception e){
-            System.out.print(e);
-        }
-
-        assertEquals(ca.getCpuState(), CpuState.ON);
+        assertEquals(ca.getCpuState(), ON);
     }
 
     @Test
-    public void mainTask() {
+    public void workloadBoundaryTest(){
+        assertTrue(ca.getWorkload() <= 100.0f);
+        assertTrue(ca.getWorkload() > 0.0f);
+
+    }
+
+    private void forwardTick(int t){
+        for(int i = 0; i < t; i++){
+            ca.tick();
+        }
     }
 }

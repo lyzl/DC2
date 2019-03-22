@@ -8,6 +8,12 @@ enum DC2CpuState {
 }
 public class DC2CpuAgent extends DC2Facility{
     private Float workload;
+
+    public Float getMaxWorkload() {
+        return maxWorkload;
+    }
+
+    private Float maxWorkload;
     private DC2CpuState cpuState;
     private Queue<Long> finishedTimeQueue = new LinkedList<>();
 
