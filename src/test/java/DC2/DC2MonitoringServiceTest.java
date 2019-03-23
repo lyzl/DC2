@@ -39,7 +39,10 @@ public class DC2MonitoringServiceTest<i> {
     public void updateCpuMatrix() {
         ms.updateCpuMatrix();
     }
-
+    @Test
+    public void monitorServiceCreated(){assertTrue(ms.equals(DC2MonitoringService.class));}
+    @Test
+    public void cpuMatrixTypeTest(){assertTrue(al.equals(ArrayList.class));}
     @Test
     public void getCpuMatrix() {
         assertEquals(size, ms.getCpuMatrix().size());
@@ -53,4 +56,15 @@ public class DC2MonitoringServiceTest<i> {
         System.out.println("Monitoring Service valid CpuMatrix test");
         assertNotNull(String.valueOf(ms.getCpuMatrix()));
     }
+    @Test
+    public void getCpuMatrixEmpty() {assertNotEquals(0, ms.getCpuMatrix().size());}
+    @Test
+    public void getCpuMatrixOutOfLowerBounds(){assertNotEquals(-1, ms.getCpuMatrix().size());}
+    @Test
+    public void getCpuMatrixOutOfUpperBoundsMinusOne(){assertNotEquals(size-1, ms.getCpuMatrix().size());}
+    @Test
+    public void getCpuMatrixOutOfUpperBounds(){
+        assertNotEquals(ms.getCpuMatrix().size()+1, ms.getCpuMatrix().size());
+    }
+
 }
