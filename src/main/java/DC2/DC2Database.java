@@ -10,6 +10,9 @@ public class DC2Database extends DC2Facility{
     private Map<DC2CpuAgent, Queue<Float>> cpuRecordingMap;
 
     public ArrayList<DC2CpuMatrix> getTopRankingList(Integer n){
+        if(n <= 0){
+            throw new IllegalArgumentException("require Cpu number must greater than 0");
+        }
         if(n < cpuRankingList.size()){
             return new ArrayList<DC2CpuMatrix>(cpuRankingList.subList(0, n - 1));
         }else{

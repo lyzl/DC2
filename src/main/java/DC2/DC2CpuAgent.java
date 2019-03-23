@@ -52,7 +52,7 @@ public class DC2CpuAgent extends DC2Facility{
     @Override
     void mainTask() {
         if(this.cpuState == DC2CpuState.ON){
-            while (finishedTimeQueue.peek() < tickCount){
+            while (finishedTimeQueue.size() > 0 && finishedTimeQueue.peek() < tickCount){
                 finishedTimeQueue.poll();
             }
             if(finishedTimeQueue.size() == 0 &&  this.cpuState == DC2CpuState.SHUTTING){

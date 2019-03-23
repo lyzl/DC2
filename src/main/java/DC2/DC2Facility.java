@@ -11,10 +11,10 @@ public abstract class DC2Facility {
          state = false;
      }
      void tick(){
+         tickCount++;
          if(tickCount % timeInterval == 0 && state){
              mainTask();
          }
-         tickCount++;
      }
      DC2Facility(Long timeInterval){
          this.timeInterval = timeInterval;
