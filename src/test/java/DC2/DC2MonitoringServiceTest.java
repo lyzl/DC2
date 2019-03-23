@@ -40,9 +40,13 @@ public class DC2MonitoringServiceTest<i> {
         ms.updateCpuMatrix();
     }
     @Test
-    public void monitorServiceCreated(){assertTrue(ms.equals(DC2MonitoringService.class));}
+    public void monitorServiceCreated(){
+        assertTrue(ms instanceof DC2MonitoringService);
+    }
     @Test
-    public void cpuMatrixTypeTest(){assertTrue(al.equals(ArrayList.class));}
+    public void cpuMatrixTypeTest(){
+        assertTrue(al instanceof ArrayList);
+    }
     @Test
     public void getCpuMatrix() {
         assertEquals(size, ms.getCpuMatrix().size());
