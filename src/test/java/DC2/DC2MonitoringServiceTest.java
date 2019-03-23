@@ -9,9 +9,21 @@ import static org.junit.Assert.*;
 
 public class DC2MonitoringServiceTest<i> {
 
+    int size = 10;
+    float workload;
+    float score;
+    float max;
+    long timeInterval;
+    String tag;
+
     ArrayList<DC2CpuAgent> al;
     DC2MonitoringService ms;
-    int size = 10;
+    private DC2CpuAgent ca;
+
+    @Before
+    public void before(){
+
+    }
 
     public DC2MonitoringServiceTest(){
         al = new ArrayList<DC2CpuAgent>();
@@ -31,5 +43,14 @@ public class DC2MonitoringServiceTest<i> {
     @Test
     public void getCpuMatrix() {
         assertEquals(size, ms.getCpuMatrix().size());
+    }
+
+    @Test
+    public void getCpuMatrix_validMatrix() {
+        ca = new DC2CpuAgent(tag, max, 1);
+        ArrayList<DC2CpuAgent> agentList = new ArrayList<DC2CpuAgent>();
+        ms = new DC2MonitoringService(agentList);
+        System.out.println("Monitoring Service valid CpuMatrix test");
+        assertNotNull(String.valueOf(ms.getCpuMatrix()));
     }
 }

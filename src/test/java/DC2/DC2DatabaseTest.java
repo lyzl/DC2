@@ -32,4 +32,10 @@ public class DC2DatabaseTest {
         assertEquals("CPU Rank list sorted",oRankingList);
         System.out.println("\n *******End of Test******\n\n");
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getTopRankingList_nonePositiveValue_raiseException(){
+        DC2Database db = new DC2Database(null, 3l);
+        db.getTopRankingList(-1);
+    }
 }

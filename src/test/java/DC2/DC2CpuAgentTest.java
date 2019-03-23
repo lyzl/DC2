@@ -59,6 +59,16 @@ public class DC2CpuAgentTest {
     }
 
     @Test
+    public void assign_task_taskFinished(){
+        DC2CpuAgent agent = new DC2CpuAgent("agent1", 100.0f, 1l);
+        agent.assign(new DC2ComputingTask(1l,10.0f,"id2"));
+        agent.powerOn();
+        agent.tick();
+        agent.tick();
+        assertTrue(agent.getQueueSize() == 0);
+    }
+
+    @Test
     public void shutDown() {
         ca.shutDown();
         forwardTick(10);
